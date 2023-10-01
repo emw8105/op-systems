@@ -1,0 +1,51 @@
+8	// Get random value for rows
+7	// Store AC (rows) at addr 302, save it to use X-- for cols/rows in loop
+302
+8	// Get random value for cols
+16	// Copy cols to Y
+7	// Store AC (cols) at addr 303
+303
+20	// Jump to loop
+100
+
+.100
+2	// load * into AC from data
+300	
+9	// print * as a char
+2
+17	// Copy Y to AC
+14	// Copy AC to X
+26	// Decrement X
+15	// Copy X back to AC
+16	// Copy AC back to Y
+22	// If X (cols) isn't 0 yet, keep looping
+100
+2	// otherwise, at the end of a row so load newline
+301	
+9	// print newline
+2
+2	// Reset Cols: Load 10 from data section, represents columns
+303
+16	// Copy 10 to Y
+2	// Load rows from data at addr 400 into AC
+302
+14	// Copy AC to X
+26	// Decrement X
+15	// Copy X back to AC
+7	// Store new value of rows back into addr 400
+302	
+22	// If X (rows) isn't 0 yet, keep looping
+100
+50	// otherwise, end
+
+
+
+.300
+42 //ascii for *
+10 // ascii for \n
+// rows - addr 302
+// cols - addr 303
+
+.1000
+30
+
