@@ -11,6 +11,6 @@ How to Compile and Run:
 
 1. javac CPU.java Memory.java
 
-2. java CPU (name of file as a string).txt (interrupt timer amount as an integer)
+2. java (name of file as a string).txt (interrupt timer amount as an integer)
 
-Example: java CPU sample1.txt 30
+Example: java CPU.java sample1.txt 30
