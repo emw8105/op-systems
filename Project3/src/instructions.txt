@@ -1,0 +1,165 @@
+Operating Systems
+CS4348
+
+
+Project #3:  Disk Allocation Methods
+
+Due Date:   Monday, November 27, 2023
+
+
+I.  Project Organization
+
+This project demonstrates three different file allocation methods.  
+
+You should do the following pieces to complete your project.  Each piece is explained below:
+
+Code	60 points
+Output	30 points
+Summary	10 points
+
+
+Code
+
+    Your code should be nicely formatted with plenty of comments.  The code should be easy to read, properly indented, employ good naming standards, good structure, etc.  
+
+
+Output
+
+     Output will be graded by running your program.   
+
+
+Summary
+
+     The summary section should discuss your project experience.  You should discuss how you approached the project, including anything difficult or interesting, what was learned, and the end result.   This should be at least 1 page in length.	
+
+ 
+II.  Project Description
+
+
+Language/Platform/Approach
+
+This project must target a Unix platform and execute properly on our cs1 or csgrads1 Linux server.
+The project must be written in C++ or Java.
+You should use the approach described under Details unless you have obtained instructor approval for another approach.
+
+
+Problem Overview
+
+This project will simulate disk allocation methods.
+
+The project will allow the user to choose an allocation method from among the three presented in the textbook.  It will allow the user to perform disk operations on a simulated disk.
+
+
+Details
+
+The project will consist of three main objects:  User interface, File System, Disk Drive.
+
+The disk should store its contents in an array.  The storage will consist of 256 blocks of 512 bytes each.  The first block is for the file allocation table.  The second block is a bitmap for free space management.  The remaining blocks hold data for the files.  The disk object only knows how to read and write blocks by block number (array index).
+
+The file system object is responsible for storing and retrieving files on the disk.  It can use any of the three file allocation methods the user chooses.  Space is allocated using a first available approach, meaning it uses the first free space it finds that satisfies the request.  The file system object may use other objects to implement the different allocation methods.
+
+The user interface object should provide a menu as shown below and invoke methods on the file system object to support the menu choices.  
+
+ 1) Display a file
+ 2) Display the file table
+ 3) Display the free space bitmap
+ 4) Display a disk block
+ 5) Copy a file from the simulation to a file on the real system
+ 6) Copy a file from the real system to a file in the simulation
+ 7) Delete a file
+ 8) Exit
+
+
+ 
+A command line argument should let the user specify a file allocation method:  contiguous, chained, indexed.  
+
+File names should be up to 8 characters.  Names should only have lowercase letters.  File extensions are not supported.  
+
+The maximum file size should be 10 blocks.  All files reside at the root level, and subdirectories are not supported.
+
+The format of the file allocation table should be as shown in the slides, with a fixed size for each field.
+
+Problems such as not having enough space should result in an error message to the user.
+
+ 
+Sample Output
+
+>project3 contiguous
+
+1) Display a file
+2) Display the file table
+3) Display the free space bitmap
+4) Display a disk block
+5) Copy a file from the simulation to a file on the real system
+6) Copy a file from the real system to a file in the simulation
+7) Delete a file
+8) Exit
+
+Choice: 6
+Copy from:  abc.txt
+Copy to: abc
+File abc.txt copied
+
+1) Display a file
+2) Display the file table
+3) Display the free space bitmap
+4) Display a disk block
+5) Copy a file from the simulation to a file on the real system
+6) Copy a file from the real system to a file in the simulation
+7) Delete a file
+8) Exit
+
+Choice: 2
+abc	2	3
+
+1) Display a file
+2) Display the file table
+3) Display the free space bitmap
+4) Display a disk block
+5) Copy a file from the simulation to a file on the real system
+6) Copy a file from the real system to a file in the simulation
+7) Delete a file
+8) Exit
+
+Choice: 3
+11111000000000000000000000000000
+00000000000000000000000000000000
+00000000000000000000000000000000
+00000000000000000000000000000000
+00000000000000000000000000000000
+00000000000000000000000000000000
+00000000000000000000000000000000
+00000000000000000000000000000000
+ 
+III. Project Guidelines
+
+
+Submitting
+
+Your final project should work correctly on cs1 or csgrads1.  
+
+Submit your project on eLearning.  Include in your submission the following files:
+
+1)	readme.txt.  A readme file describing how to compile and run your project
+2)	summary.doc  A Word document for the summary 
+3)	Your source files
+
+
+Partial or Missing Submissions
+
+It is your responsibility to upload all of the right files on time.  It is recommended that you double-check the files you upload to make sure they are the right ones.  Once the deadline passes, changes to the submission are not accepted without a late penalty.
+
+
+Academic Honesty
+
+All work must be your own.  If cheating is suspected, you will be referred to the Office of Community Standards and Conduct for further discussion.  Copying may be detected in a number of ways, including by software which compares your code with all other students’ source code, by comparison with code on the Internet, or by a visual inspection of your source code.
+
+
+Grading
+
+The written portions will be graded subjectively based on completeness and quality.  The code will be graded based on points allocated for each key part of the processing as determined by the instructor.  The output will be graded based on expected results.
+
+ 
+Resources
+
+The slides and textbook describe the three allocation methods to be used.  

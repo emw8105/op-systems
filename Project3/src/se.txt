@@ -1,0 +1,22 @@
+If the customer spends minimum $1000 for the whole year, (s)he qualifies for 2% rebate (refund). For every additional $1000 spent by the customer, rebate rate goes up by 0.1%. However, max rebate rate is limited 4%. Prompt and get the total purchase amount for the year from the user, and output the rebate % and the rebate amount.
+Determine the valid & invalid partitions based on output ?
+Determine the boundary values based on output ?
+
+
+Valid Partitions:
+-	[0, 999.9] // rebate = 0%
+-	[1000, 21000] // rebate = 2-4%
+-	All positive numbers greater than 21000 // rebate = 4%
+Invalid Partitions:
+-	All negative integers // can’t spend negative money
+
+Boundary Values:
+-0.99, 0, 0.01, 999.8, 999.9, 1000, 20999.9, 21000, 21000.1
+
+Design Complexity (mdc):  mdc is calculated as the number of integration tests required to integrate a module with its subordinate modules. In this case, we have 2 decisions to make, with M deciding between A and B, and B deciding between D and E. Therefore, our mdc is 2 + 1 = 3
+Design Complexity (S0): S0 is calculated as the number of subtrees in the chart with M as the root. In this case, C, D, and E are all 1 because they are leaves. S0(A) is S0(C) + S0(D) + mdc(A) = 1 + 1 + 1 = 3 because A has no decisions itself. S0(B) is S0(E) + mdc(B) = 1 + 2 = 3, because D is already used by S0(A) but B has one decision. Lastly, S0(M) = S0(A) + S0(B) + mdc(M) = 3 + 3 + 2 = 8, because M has one decision itself and it’s subtrees we have calculated to be 3 each. Therefore the design complexity is 8
+Integration Complexity (SI): SI is calculated to be the minimal number of integration test cases required to integrate the modules of a chart, so SI = S0 – n + 1, where n is the number of modules in the chart. We have a few integration paths:
+M, A, C, D
+M, B, D
+M, B, E
+Therefore our integration complexity is 3
